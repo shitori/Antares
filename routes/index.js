@@ -3,7 +3,15 @@ var router = express.Router();
 var model = require('../models/model')
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    model.test("https://www.youtube.com/watch?v=PT7-JdKhzcU",function (status) {
+    /*model.test("https://www.youtube.com/watch?v=PT7-JdKhzcU",function (status) {
+        console.log(status)
+        res.render('index', {title: 'Express'});
+    })*/
+    res.render('index', {title: 'Acceuil'});
+});
+
+router.get('/test', function (req, res, next) {
+    model.test(function (status) {
         console.log(status)
         res.render('index', {title: 'Express'});
     })

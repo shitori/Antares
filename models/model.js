@@ -1,8 +1,8 @@
 const {exec} = require("child_process");
 
 class Model {
-    static test(irl,cb) {
-        exec("cd public/video && youtube-dl "+irl, (error, stdout, stderr) => {
+    static test(cb) {
+        exec("cd public/video && youtube-dl -f mp4 -cit https://www.youtube.com/playlist?list=PLNF8K9Ddz0kKfujG6blfAxngYh_C66C_q", (error, stdout, stderr) => {
         if (error) {
                 console.log("error: "+error.message);
                 cb("ko");

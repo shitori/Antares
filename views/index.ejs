@@ -1,11 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
+<% include header.ejs %>
+<div class="container bg-light rounded-lg p-5 text-center text-secondary">
+    <h1>Bienvenue sur Antarès</h1>
     <p>Welcome to <%= title %></p>
-  </body>
-</html>
+
+    <form>
+        <div class="form-group row">
+            <label for="inputURL" class="col-sm-3 col-form-label">URL de la vidéo youtube</label>
+            <div class="col-sm-7">
+                <input type="password" class="form-control" id="inputURL" name="url">
+            </div>
+            <div class="col-sm-2">
+                <select name="pets" class="form-control"  >
+                    <option value="">Format</option>
+                    <option value="mp3">mp3</option>
+                    <option value="mp4">mp4</option>
+                </select>
+            </div>
+        </div>
+    </form>
+</div>
+
+<% include footer.ejs %>
