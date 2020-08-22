@@ -1,23 +1,28 @@
 <% include header.ejs %>
-<div class="container bg-light rounded-lg p-5 text-center text-secondary">
-    <h1>Bienvenue sur Antarès</h1>
-    <p>Welcome to <%= title %></p>
 
-    <form>
+<div class="container bg-light rounded-lg p-5 text-center text-secondary ">
+    <h1>Bienvenue sur Antarès</h1>
+
         <div class="form-group row">
-            <label for="inputURL" class="col-sm-3 col-form-label">URL de la vidéo youtube</label>
+            <label for="inputURL" class="col-sm-3 col-form-label">URL youtube de la vidéo / playlist </label>
             <div class="col-sm-7">
-                <input type="password" class="form-control" id="inputURL" name="url">
+                <input type="text" class="form-control" id="inputURL" name="url">
             </div>
             <div class="col-sm-2">
-                <select name="pets" class="form-control"  >
-                    <option value="">Format</option>
+                <select name="pets" class="form-control" id="inputFormat">
                     <option value="mp3">mp3</option>
                     <option value="mp4">mp4</option>
                 </select>
             </div>
         </div>
-    </form>
+        <button type="button" class="btn btn-outline-success btn-lg btn-block" id="dl">Télécharger</button>
+
+    <div class="dl mt-5">
+        <h2 id="dl-titre"></h2>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+        </div>
+    </div>
 </div>
 
 <% include footer.ejs %>
