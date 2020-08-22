@@ -1,17 +1,21 @@
 const {exec} = require("child_process");
 
 class Model {
-    static test(cb) {
-        exec("cd public/video && youtube-dl -f mp4 -cit https://www.youtube.com/playlist?list=PLNF8K9Ddz0kKfujG6blfAxngYh_C66C_q", (error, stdout, stderr) => {
-        if (error) {
-                console.log("error: "+error.message);
-                cb("ko");
-            }
-            if (stderr) {
-                console.log("stderr:"+ stderr);
-                cb("ko");
-            }
-            cb("stdout: " + stdout);
+    static dl(url, format, cb) {
+        if (format == "mp3") {
+            exec("cd public/video && youtube-dl --extract-audio --audio-format mp3 -cit " + url, (error, stdout, stderr) => {
+                cb(stderr, stdout);
+            });
+        } else {
+            exec("cd public/video && youtube-dl -f mp4 -cit " + url, (error, stdout, stderr) => {
+                cb(stderr, stdout);
+            });
+        }
+    }
+
+    static gestion(cb){
+        exec("cd public/video && start .", (error, stdout, stderr) => {
+            cb(stderr, stdout);
         });
     }
 }
